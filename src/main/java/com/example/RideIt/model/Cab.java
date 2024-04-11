@@ -23,5 +23,7 @@ public class Cab {
     int numberOfSeats;
     double farePerKm;
 
+    @OneToOne
+    @JoinColumn(name="driver_id")
     Driver driver;
 }

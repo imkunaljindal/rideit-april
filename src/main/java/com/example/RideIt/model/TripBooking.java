@@ -7,6 +7,7 @@ import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -14,21 +15,23 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name="customer")
 public class TripBooking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    int id;
-
+    String id;
     String source;
     String destination;
-
     double tripDistanceInKm;
     double totalFare;
-
     TripStatus tripStatus;
-
     @CreationTimestamp
     Date bookedAt;
+    @ManyToOne
+    @JoinColumn
+    Customer customer;
+
+    @ManyToOne
+    @JoinColumn
+    Driver driver;
 }
