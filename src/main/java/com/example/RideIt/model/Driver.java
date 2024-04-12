@@ -13,17 +13,24 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Builder
 public class Driver {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
+
     String name;
+
     int age;
+
     String panNumber;
+
     @Column(unique = true, nullable = false)
     String mobNo;
+
     double rating;
+
     @OneToOne(mappedBy = "driver", cascade = CascadeType.ALL)
     Cab cab;
 

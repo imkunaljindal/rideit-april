@@ -1,6 +1,7 @@
 package com.example.RideIt.controller;
 
 import com.example.RideIt.dto.request.CustomerRequest;
+import com.example.RideIt.dto.response.CustomerResponse;
 import com.example.RideIt.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,12 +15,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/customer")
 public class CustomerController {
 
-    @Autowired
-    CustomerService customerService;
+//    @Autowired
+//    CustomerService customerService;  // Field injection
+
+    private final CustomerService customerService;
+
+    // constructor injection
+    public CustomerController(CustomerService customerService){
+        this.customerService = customerService;
+    }
 
     @PostMapping
-    public ResponseEntity<String> addCustomer(@RequestBody CustomerRequest customerRequest){
-        String response = customerService.addCustomer(customerRequest);
+    public ResponseEntity<CustomerResponse> addCustomer(@RequestBody CustomerRequest customerRequest){
+        CustomerResponse response = customerService.addCustomer(customerRequest);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
+
+    // update details
 }

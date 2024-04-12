@@ -20,13 +20,20 @@ public class TripBooking {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     String id;
+
     String source;
+
     String destination;
+
     double tripDistanceInKm;
+
     double totalFare;
+
     TripStatus tripStatus;
+
     @CreationTimestamp
     Date bookedAt;
+
     @ManyToOne
     @JoinColumn
     Customer customer;
