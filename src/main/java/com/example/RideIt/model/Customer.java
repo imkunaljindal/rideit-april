@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name="customer")
+@Table(name="customer_info")
 @Builder
 public class Customer {
 
@@ -25,6 +25,7 @@ public class Customer {
 
     String name;
 
+    @Column(name = "age_value")
     int age;
 
     @Column(unique = true, nullable = false)
