@@ -1,6 +1,7 @@
 package com.example.RideIt.model;
 
 import com.example.RideIt.Enum.CarType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;

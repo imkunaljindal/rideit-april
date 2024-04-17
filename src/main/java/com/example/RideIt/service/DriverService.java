@@ -39,4 +39,8 @@ public class DriverService {
         return "Driver and Cab saved successfully";
 
     }
+
+    public Driver getDriver(String mobNo) {
+        return driverRepository.findByMobNo(mobNo);
+    }
 }

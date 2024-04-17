@@ -1,5 +1,6 @@
 package com.example.RideIt.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -32,6 +33,7 @@ public class Driver {
     double rating;
 
     @OneToOne(mappedBy = "driver", cascade = CascadeType.ALL)
+    @JsonIgnore
     Cab cab;
 
     @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL)
